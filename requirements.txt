@@ -1,0 +1,12 @@
+# Flask и веб-зависимости
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# HTTP-запросы к API
+requests==2.31.0
+
+# Работа с окружением
+python-dotenv==1.0.0
+
+# OpenAI-compatible клиент для OpenRouter
+openai>=2.0.0

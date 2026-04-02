@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaMS - Infinity Realms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="container">
+        <!-- Visual Zone -->
+        <div class="visual-zone">
+            <img id="location-image" src="" alt="Location" class="location-image">
+            <div class="image-overlay">DaMS v1.0</div>
+        </div>
+
+        <!-- Narrative Log -->
+        <div class="narrative-log" id="narrative-log">
+            <div class="log-entry system">
+                <span class="timestamp">[SYSTEM]</span> DaMS загружен. Ожидание команды...
+            </div>
+        </div>
+
+        <!-- Action Suggestions -->
+        <div class="action-suggestions" id="action-suggestions">
+            <button class="action-btn" data-action="start_game">Начать игру</button>
+        </div>
+
+        <!-- Input Field -->
+        <div class="input-zone">
+            <span class="prompt-symbol">&gt;</span>
+            <input type="text" id="action-input" placeholder="Введите действие..." autocomplete="off">
+            <button id="send-btn" class="send-btn">↵</button>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="inventory-section">
+                <span class="section-title">📦 ИНВЕНТАРЬ:</span>
+                <div id="inventory-list" class="item-list">
+                    <span class="empty-msg">Пусто</span>
+                </div>
+            </div>
+            <div class="effects-section">
+                <span class="section-title">⚡ ЭФФЕКТЫ:</span>
+                <div id="effects-list" class="item-list">
+                    <span class="empty-msg">Нет</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

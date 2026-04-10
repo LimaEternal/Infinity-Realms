@@ -42,7 +42,8 @@ body {
 }
 
 .container {
-    max-width: 1400px;
+    width: 95vw;
+    max-width: 1920px;
     margin: 0 auto;
     padding: 10px;
     height: 100vh;
@@ -51,12 +52,12 @@ body {
     gap: 8px;
 }
 
-/* Grid Layout: sidebars span full height, image top-center, chat bottom-center */
+/* Grid Layout: растягиваем на всю ширину, сайдбары по краям */
 .grid-layout {
     flex: 1;
     display: grid;
-    grid-template-columns: 170px 1fr 170px;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr minmax(500px, 2.5fr) 1fr;
+    grid-template-rows: auto 1fr;
     gap: 8px;
     min-height: 0;
 }
@@ -89,6 +90,8 @@ body {
     overflow: hidden;
     position: relative;
     background: #000;
+    aspect-ratio: 16 / 9;
+    align-self: center;
 }
 
 .location-image {
@@ -114,11 +117,11 @@ body {
     grid-row: 2;
     border: 2px solid var(--terminal-dim);
     border-radius: 5px;
-    padding: 10px;
+    padding: 14px;
     overflow-y: auto;
     background: rgba(0, 20, 0, 0.3);
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .log-entry {
@@ -236,7 +239,7 @@ body {
 /* Сайдбары */
 .section-title {
     color: var(--accent-color);
-    font-size: 11px;
+    font-size: 16px;
     font-weight: bold;
     display: block;
     margin-bottom: 6px;
@@ -252,13 +255,15 @@ body {
     background: var(--border-color);
     border: 1px solid var(--terminal-dim);
     padding: 3px 8px;
-    font-size: 14px;
+    font-size: 18px;
     border-radius: 3px;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .empty-msg {
     color: var(--terminal-dim);
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
 }
 
@@ -280,7 +285,22 @@ body {
     background: var(--terminal-green);
 }
 
-/* Responsive */
+/* Responsive: при узком экране сайдбары сжимаются, центр остаётся широким */
+@media (max-width: 1000px) {
+    .grid-layout {
+        grid-template-columns: minmax(140px, 0.6fr) minmax(400px, 3fr) minmax(140px, 0.6fr);
+    }
+
+    .item-tag {
+        font-size: 14px;
+        padding: 2px 5px;
+    }
+
+    .section-title {
+        font-size: 13px;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 8px;

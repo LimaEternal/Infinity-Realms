@@ -97,7 +97,10 @@ async function sendAction(customAction = null) {
 function updateInterface(data) {
     // Добавляем описание в лог
     addLogEntry('[DaMS]', data.description, 'dams');
-    
+
+    // Ограничиваем видимость — только 2 последних ответа
+    limitVisibleMessages();
+
     // Обновляем кнопки действий
     updateSuggestions(data.suggestions);
     
@@ -216,4 +219,26 @@ function setInteractionEnabled(enabled) {
 // Утилита для добавления системных сообщений
 function addSystemMessage(text) {
     addLogEntry('[SYSTEM]', text, 'system');
+}
+
+// Скрывает старые сообщения, оставляя 2 последних ответа DaMS
+function limitVisibleMessages() {
+    const allEntries = narrativeLog.querySelectorAll('.log-entry');
+    // Собираем индексы всех ответов DaMS
+    const damIndices = [];
+    allEntries.forEach((entry, idx) => {
+        if (entry.classList.contains('dams')) {
+            damIndices.push(idx);
+        }
+    });
+
+    // Скрываем все кроме последних 2 ответов DaMS
+    const hideBefore = damIndices.length > 2 ? damIndices[damIndices.length - 2] : -1;
+    allEntries.forEach((entry, idx) => {
+        if (idx <= hideBefore) {
+            entry.style.display = 'none';
+        } else {
+            entry.style.display = '';
+        }
+    });
 }

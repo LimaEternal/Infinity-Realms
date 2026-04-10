@@ -169,7 +169,7 @@ body {
     border: 2px solid var(--terminal-green);
     color: var(--terminal-green);
     font-family: 'Courier New', monospace;
-    font-size: 12px;
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.2s;
     text-transform: uppercase;
@@ -199,7 +199,7 @@ body {
 
 .prompt-symbol {
     color: var(--terminal-green);
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -209,7 +209,7 @@ body {
     border: none;
     color: var(--text-color);
     font-family: 'Courier New', monospace;
-    font-size: 14px;
+    font-size: 18px;
     padding: 4px;
     outline: none;
 }
@@ -252,13 +252,13 @@ body {
     background: var(--border-color);
     border: 1px solid var(--terminal-dim);
     padding: 3px 8px;
-    font-size: 11px;
+    font-size: 14px;
     border-radius: 3px;
 }
 
 .empty-msg {
     color: var(--terminal-dim);
-    font-size: 11px;
+    font-size: 14px;
     font-style: italic;
 }
 

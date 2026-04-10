@@ -1,5 +1,6 @@
 .env
 venv/
+.qwen/
 .venv
 __pycache__/
 *.pyc

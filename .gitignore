@@ -11,3 +11,4 @@ instance/
 .vscode/
 .idea/
 *.log
+.qwen/  

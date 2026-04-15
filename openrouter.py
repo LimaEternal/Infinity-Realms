@@ -5,7 +5,7 @@ from config import openrouter_client, DEFAULT_MODEL, SYSTEM_PROMPT, game_state
 
 def clean_json_response(content):
     """Извлекает JSON из ответа, убирая мусор и чиня обрезанный JSON"""
-    print(f"📥 Сырой ответ от модели: {content[:200]}...")
+    print(f" Сырой ответ от модели: {content[:200]}...")
 
     content = content.strip()
 
@@ -60,14 +60,14 @@ def clean_json_response(content):
 
         try:
             json.loads(fixed)
-            print(f"🔧 Починили обрезанный JSON")
+            print(f" Починили обрезанный JSON")
             return fixed
         except:
             # Если не вышло, пробуем минимальный fallback JSON
-            print(f"⚠️ Стандартная починка не сработала, используем fallback")
+            print(f" Стандартная починка не сработала, используем fallback")
             return '{"description": "Ошибка обработки ответа. Попробуйте другое действие.", "suggestions": ["Попробовать снова", "Начать заново"], "inventory": [], "effects": [], "image_prompt": "error terminal"}'
 
-    print(f"❌ Не удалось извлечь JSON. Контент: {content[:300]}")
+    print(f" Не удалось извлечь JSON. Контент: {content[:300]}")
     raise ValueError("Не удалось извлечь JSON из ответа")
 
 

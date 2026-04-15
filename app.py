@@ -33,7 +33,7 @@ def handle_action():
     if not openrouter_client:
         return jsonify(
             {
-                "description": "⚠️ API не настроен. Добавь ключ в .env файл.",
+                "description": " API не настроен. Добавь ключ в .env файл.",
                 "suggestions": ["Настроить API", "Попробовать снова", "Начать заново"],
                 "inventory": [],
                 "effects": [],
@@ -238,5 +238,5 @@ def choose_setting():
 
 if __name__ == "__main__":
     # Запуск сервера
-    print("🚀 DaMS запускается на http://localhost:5000")
+    print(" DaMS запускается на http://localhost:5000")
     app.run(debug=False, host="0.0.0.0", port=5000)

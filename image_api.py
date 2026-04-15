@@ -19,7 +19,7 @@ def generate_image(prompt):
         clean = re.sub(r"[^a-zA-Z\s]", "", clean)
         words = clean.split()[:6]
         full_prompt = " ".join(words).lower()
-        print(f"🎨 '{prompt}' → '{full_prompt}'")
+        print(f" '{prompt}' → '{full_prompt}'")
 
         safe_prompt = quote(full_prompt)
         # Уникальный seed = каждый раз новая картинка, соотношение 16:9
@@ -30,7 +30,7 @@ def generate_image(prompt):
             try:
                 response = req.get(url, timeout=60)
                 if response.status_code == 200:
-                    print(f"✅ Картинка готова (попытка {attempt + 1})")
+                    print(f" Картинка готова (попытка {attempt + 1})")
                     return (
                         response.content,
                         200,
@@ -38,14 +38,14 @@ def generate_image(prompt):
                     )
                 else:
                     print(
-                        f"⚠️ Pollinations вернул {response.status_code} (попытка {attempt + 1})"
+                        f" Pollinations вернул {response.status_code} (попытка {attempt + 1})"
                     )
             except req.exceptions.Timeout:
                 print(f"⏳ Таймаут (попытка {attempt + 1}/3)")
                 continue
 
-        print(f"❌ Pollinations не ответил за 3 попытки")
+        print(f" Pollinations не ответил за 3 попытки")
         return b"", 200, {"Content-Type": "image/jpeg"}
     except Exception as e:
-        print(f"❌ Ошибка: {e}")
+        print(f" Ошибка: {e}")
         return b"Error", 500

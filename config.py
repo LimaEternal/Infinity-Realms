@@ -21,7 +21,7 @@ def load_prompt(filename):
         with open(filepath, "r", encoding="utf-8") as f:
             return f.read().strip()
     except FileNotFoundError:
-        print(f"⚠️ Промпт {filename} не найден!")
+        print(f" Промпт {filename} не найден!")
         return ""
 
 
@@ -37,10 +37,10 @@ if OPENROUTER_API_KEY:
         api_key=OPENROUTER_API_KEY,
         base_url="https://openrouter.ai/api/v1",
     )
-    print("✅ OpenRouter подключён!")
+    print(" OpenRouter подключён!")
 else:
     openrouter_client = None
-    print("⚠️ OPENROUTER_API_KEY не найден! Нейросеть не будет работать.")
+    print(" OPENROUTER_API_KEY не найден! Нейросеть не будет работать.")
 
 # Модель по умолчанию (бесплатная или дешёвая)
 DEFAULT_MODEL = os.getenv("AI_MODEL", "qwen/qwen3-coder:free")
